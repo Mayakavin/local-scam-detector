@@ -1,6 +1,6 @@
 {
-  "n": 1530,
-  "max_abs_diff": 1.0132789611816406e-06,
+  "n": 1560,
+  "max_abs_diff": 8.344650268554688e-07,
   "argmax_agreement": 1.0,
   "threshold_decision_agreement": 1.0
 }

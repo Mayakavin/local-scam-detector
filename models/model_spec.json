@@ -30,5 +30,5 @@
     ],
     "postprocessing": "softmax is already inside the model; scam if output[1] >= threshold"
   },
-  "threshold": 0.6000000000000001
+  "threshold": 0.42
 }

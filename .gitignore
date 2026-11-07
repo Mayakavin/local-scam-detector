@@ -7,3 +7,4 @@ toy.pte
 test.py
 data/*
 !data/README.md
+trunc_check.py

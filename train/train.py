@@ -50,9 +50,12 @@ with torch.no_grad():
     pv = model(Xva)[:, 1].numpy()
     pt = model(Xte)[:, 1].numpy()
 
+
 # threshold chosen on VALIDATION only
-grid = np.arange(0.05, 0.96, 0.05)
-thr = max(grid, key=lambda t: metrics(yva.numpy(), pv, t)["f1"])
+# threshold chosen on VALIDATION only: lowest threshold that keeps false alarms <= 1%
+grid = np.arange(0.05, 0.99, 0.01)
+ok = [t for t in grid if metrics(yva.numpy(), pv, t)["fpr"] <= 0.01]
+thr = round(float(min(ok)), 2) if ok else 0.5
 val_m, test_m = metrics(yva.numpy(), pv, thr), metrics(yte.numpy(), pt, thr)
 print("\nchosen threshold:", round(float(thr), 2))
 print("VAL :", val_m)
